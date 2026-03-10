@@ -27,4 +27,14 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
   }
 });
 
+
 client.login(process.env.TOKEN);
+
+// Add this at the bottom of your bot.js
+const express = require("express");
+const app = express();
+
+const PORT = process.env.PORT || 3000;
+
+app.get("/", (req, res) => res.send("Trap bot alive!"));
+app.listen(PORT, () => console.log(`Web server running on port ${PORT}`));
